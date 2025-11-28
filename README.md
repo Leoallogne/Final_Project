@@ -11,16 +11,16 @@ Proyek ini mengikuti standar aplikasi perusahaan (enterprise-level) dengan folde
 
 # 📌 **Daftar Isi**
 
-* [Deskripsi Singkat](#deskripsi-singkat)
-* [Fitur Utama](#fitur-utama)
-* [Alur Aplikasi](#alur-aplikasi)
-* [Teknologi yang Digunakan](#teknologi-yang-digunakan)
-* [Struktur Folder Lengkap](#struktur-folder-lengkap)
-* [Panduan Instalasi](#panduan-instalasi)
-* [Konfigurasi Google OAuth](#konfigurasi-google-oauth)
-* [Struktur Database](#struktur-database)
-* [Roadmap Pengembangan](#roadmap-pengembangan)
-* [Lisensi](#lisensi)
+- [Deskripsi Singkat](#deskripsi-singkat)
+- [Fitur Utama](#fitur-utama)
+- [Alur Aplikasi](#alur-aplikasi)
+- [Teknologi yang Digunakan](#teknologi-yang-digunakan)
+- [Struktur Folder Lengkap](#struktur-folder-lengkap)
+- [Panduan Instalasi](#panduan-instalasi)
+- [Konfigurasi Google OAuth](#konfigurasi-google-oauth)
+- [Struktur Database](#struktur-database)
+- [Roadmap Pengembangan](#roadmap-pengembangan)
+- [Lisensi](#lisensi)
 
 ---
 
@@ -28,13 +28,13 @@ Proyek ini mengikuti standar aplikasi perusahaan (enterprise-level) dengan folde
 
 **EventOps** adalah platform untuk membantu panitia event kampus dalam:
 
-* Perencanaan & persiapan event
-* Koordinasi panitia & divisi
-* Manajemen tugas & workflow
-* Sistem approval berjenjang
-* Upload dokumen & versioning
-* Analisis performa event
-* Notifikasi (email & web push)
+- Perencanaan & persiapan event
+- Koordinasi panitia & divisi
+- Manajemen tugas & workflow
+- Sistem approval berjenjang
+- Upload dokumen & versioning
+- Analisis performa event
+- Notifikasi (email & web push)
 
 Aplikasi ini fokus pada **enterprise operation management**, bukan sekadar CRUD sederhana.
 
@@ -44,14 +44,15 @@ Aplikasi ini fokus pada **enterprise operation management**, bukan sekadar CRUD 
 
 ## ✅ **1. Autentikasi & Manajemen Pengguna**
 
-* Login menggunakan **Google OAuth (Google Identity Services)**
-* Role user:
+- Login menggunakan **Google OAuth (Google Identity Services)**
+- Role user:
 
-  * Admin Kampus
-  * Ketua Event
-  * Koordinator Divisi
-  * Anggota Panitia
-* Manajemen hak akses melalui middleware
+  - Admin Kampus
+  - Ketua Event
+  - Koordinator Divisi
+  - Anggota Panitia
+
+- Manajemen hak akses melalui middleware
 
 ---
 
@@ -59,15 +60,15 @@ Aplikasi ini fokus pada **enterprise operation management**, bukan sekadar CRUD 
 
 Dashboard menampilkan data operasional:
 
-* Ringkasan jumlah event aktif
-* Task overview
-* Approval pending
-* Dokumentasi terbaru
-* Chart.js integration:
+- Ringkasan jumlah event aktif
+- Task overview
+- Approval pending
+- Dokumentasi terbaru
+- Chart.js integration:
 
-  * Grafik time-series (penyelesaian tugas per hari)
-  * Grafik kategori (task per divisi)
-  * Grafik status (Done, Pending, In Progress, Review)
+  - Grafik time-series (penyelesaian tugas per hari)
+  - Grafik kategori (task per divisi)
+  - Grafik status (Done, Pending, In Progress, Review)
 
 ---
 
@@ -75,19 +76,19 @@ Dashboard menampilkan data operasional:
 
 Setiap event memiliki alur/phase:
 
-* Proposal
-* Persiapan
-* Publikasi
-* Registrasi
-* Pelaksanaan
-* Closing
+- Proposal
+- Persiapan
+- Publikasi
+- Registrasi
+- Pelaksanaan
+- Closing
 
 Pengguna dapat:
 
-* Membuat event
-* Mengatur timeline
-* Menetapkan divisi & panitia
-* Melihat progress keseluruhan event
+- Membuat event
+- Mengatur timeline
+- Menetapkan divisi & panitia
+- Melihat progress keseluruhan event
 
 ---
 
@@ -95,11 +96,11 @@ Pengguna dapat:
 
 Terdiri dari approval:
 
-* Proposal event
-* Anggaran
-* Pengajuan ruangan
-* Publikasi poster
-* Dokumen MoU
+- Proposal event
+- Anggaran
+- Pengajuan ruangan
+- Publikasi poster
+- Dokumen MoU
 
 Level approval:
 
@@ -115,11 +116,11 @@ Semua approval disimpan dalam log aktivitas.
 
 Task board menyerupai Trello:
 
-* Kolom status: Todo → In Progress → Review → Done
-* Deadline & priority
-* Multi user assignment
-* Upload file per task
-* Activity log setiap perubahan
+- Kolom status: Todo → In Progress → Review → Done
+- Deadline & priority
+- Multi user assignment
+- Upload file per task
+- Activity log setiap perubahan
 
 ---
 
@@ -127,13 +128,13 @@ Task board menyerupai Trello:
 
 Divisi default:
 
-* Publikasi
-* Konsumsi
-* Dokumentasi
-* Acara
-* Sponsorship
-* Perlengkapan
-* Keamanan
+- Publikasi
+- Konsumsi
+- Dokumentasi
+- Acara
+- Sponsorship
+- Perlengkapan
+- Keamanan
 
 Setiap divisi memiliki koordinator & anggota.
 
@@ -143,20 +144,20 @@ Setiap divisi memiliki koordinator & anggota.
 
 Seperti mini Google Drive:
 
-* Upload dokumen
-* Versioning otomatis
-* Commenting untuk diskusi
-* Approval dokumen
-* Folder per phase event
+- Upload dokumen
+- Versioning otomatis
+- Commenting untuk diskusi
+- Approval dokumen
+- Folder per phase event
 
 File dapat berupa:
 
-* Proposal
-* Poster
-* Rundown
-* MoU
-* Invoice
-* Laporan akhir
+- Proposal
+- Poster
+- Rundown
+- MoU
+- Invoice
+- Laporan akhir
 
 ---
 
@@ -164,14 +165,14 @@ File dapat berupa:
 
 Menggunakan library:
 
-* frappe-gantt / jsgantt-improved
+- frappe-gantt / jsgantt-improved
 
 Menampilkan:
 
-* Event phases
-* Deadline
-* Ketergantungan task
-* Progress bar
+- Event phases
+- Deadline
+- Ketergantungan task
+- Progress bar
 
 ---
 
@@ -179,15 +180,15 @@ Menampilkan:
 
 ### Web Push Notification:
 
-* Reminder deadline
-* Approval request
-* Dokumen versi baru
+- Reminder deadline
+- Approval request
+- Dokumen versi baru
 
 ### Email Notification (PHPMailer):
 
-* Konfirmasi tugas
-* Notifikasi penolakan approval
-* Reminder panitia
+- Konfirmasi tugas
+- Notifikasi penolakan approval
+- Reminder panitia
 
 Semua notifikasi dicatat dalam tabel `notifications`.
 
@@ -195,12 +196,12 @@ Semua notifikasi dicatat dalam tabel `notifications`.
 
 ## ✅ **10. Laporan & Export**
 
-* Export CSV (tugas, divisi, panitia)
-* Export PDF:
+- Export CSV (tugas, divisi, panitia)
+- Export PDF:
 
-  * Laporan progress event
-  * Laporan akhir
-  * Ringkasan keuangan
+  - Laporan progress event
+  - Laporan akhir
+  - Ringkasan keuangan
 
 ---
 
@@ -417,8 +418,8 @@ http://localhost/eventops/public/index.php?route=auth/google-callback
 
 6. Copy:
 
-* CLIENT ID
-* CLIENT SECRET
+- CLIENT ID
+- CLIENT SECRET
 
 Masukkan ke `.env`.
 
@@ -428,35 +429,35 @@ Masukkan ke `.env`.
 
 ### Tabel utama:
 
-* users
-* events
-* event_phases
-* divisions
-* division_members
-* tasks
-* task_assignments
-* documents
-* document_versions
-* approvals
-* notifications
-* activity_logs
+- users
+- events
+- event_phases
+- divisions
+- division_members
+- tasks
+- task_assignments
+- documents
+- document_versions
+- approvals
+- notifications
+- activity_logs
 
 ### Folder pendukung:
 
-* `migrations/` → file SQL pembuatan tabel
-* `seeds/` → data dummy
-* `db_dump.sql` → backup penuh
+- `migrations/` → file SQL pembuatan tabel
+- `seeds/` → data dummy
+- `db_dump.sql` → backup penuh
 
 ---
 
 # 🚧 **Roadmap Pengembangan**
 
-* [ ] Menambah fitur Kalender Event (FullCalendar)
-* [ ] Manajemen Anggaran (finance module)
-* [ ] Sistem komentar per task
-* [ ] Integrasi Google Calendar
-* [ ] Live activity feed realtime (WebSocket)
-* [ ] Dark mode UI
+- [ ] Menambah fitur Kalender Event (FullCalendar)
+- [ ] Manajemen Anggaran (finance module)
+- [ ] Sistem komentar per task
+- [ ] Integrasi Google Calendar
+- [ ] Live activity feed realtime (WebSocket)
+- [ ] Dark mode UI
 
 ---
 
@@ -469,4 +470,6 @@ Bebas digunakan untuk keperluan **tugas kuliah, final project, maupun portofolio
 # 👨‍💻 Dibuat oleh
 
 **Muhammad Syafiq**
+**Iptul (Luthfi Zeindika)**
+**Raga Satria**
 Buana Perjuangan University, Karawang
