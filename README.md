@@ -1,6 +1,83 @@
-irmabelle@irmas-MacBook-Pro Final_Project % tree
-.
+# EventOps – Sistem Manajemen Event Mahasiswa (PHP Native + MySQL)
+
+EventOps adalah aplikasi web yang dirancang untuk membantu organisasi mahasiswa dan pihak kampus dalam mengelola seluruh proses event secara digital. Sistem ini menyediakan fitur manajemen event, divisi, tugas panitia, dokumen, approval, notifikasi, serta dashboard analitik. Aplikasi ini dibangun menggunakan *PHP Native* dengan arsitektur MVC, dipadukan dengan Google OAuth, Chart.js, dan Service Worker untuk notifikasi.
+
+---
+
+## 🚀 Fitur Utama
+
+### 🔐 Autentikasi & Role Management
+
+* Login menggunakan Google OAuth 2.0.
+* Manajemen sesi pengguna.
+* Role-based access (Admin, Ketua Event, Koordinator, Panitia).
+
+### 🗂 Manajemen Event
+
+* CRUD Event.
+* Detail event lengkap (lokasi, tanggal, fase event).
+* Pengelolaan fase event (Planning → Running → Evaluation).
+
+### 🧩 Manajemen Divisi & Panitia
+
+* Pembuatan divisi.
+* Assign koordinator.
+* Assign anggota panitia.
+* Struktur organisasi event.
+
+### 📌 Manajemen Tugas (Task Board)
+
+* Penugasan tugas berdasarkan divisi.
+* Task Board (Kanban View): To Do → In Progress → Done.
+* Update progres tugas oleh panitia.
+
+### 📁 Manajemen Dokumen
+
+* Upload proposal, MoU, surat, file pendukung event.
+* Sistem versioning dokumen.
+* Detail & download dokumen.
+
+### ✔️ Sistem Approval
+
+* Persetujuan proposal event dan anggaran.
+* Riwayat persetujuan dan catatan revisi.
+
+### 🔔 Notifikasi
+
+* Notifikasi untuk tugas baru.
+* Notifikasi approval.
+* Notifikasi deadline.
+* Service Worker (sw.js) siap untuk push notification.
+
+### 📊 Dashboard Analitik
+
+* Grafik kategori event.
+* Grafik time-series pendaftaran atau progress.
+* Ringkasan total event, tugas, divisi, dan user.
+* Komponen Chart Cards.
+
+---
+
+## 🏛 Arsitektur Sistem
+
+EventOps menggunakan arsitektur berikut:
+
+```
+Request → Router → Middleware → Controller → Service → Model → Database
+                                          ↓
+                                   View Renderer
+```
+
+Struktur ini memastikan aplikasi lebih terorganisir, mudah dikembangkan, dan scalable.
+
+---
+
+## 📁 Struktur Folder
+
+```
+Final_Project/
 ├── README.md
+├── composer.json
 ├── app
 │   ├── Api
 │   │   ├── ApiClient.php
@@ -57,7 +134,6 @@ irmabelle@irmas-MacBook-Pro Final_Project % tree
 │       ├── PushNotificationService.php
 │       ├── TaskService.php
 │       └── UploadService.php
-├── composer.json
 ├── database
 │   ├── db_dump.sql
 │   ├── migrations
@@ -88,27 +164,86 @@ irmabelle@irmas-MacBook-Pro Final_Project % tree
     │   └── sidebar.php
     └── views
         ├── approvals
-        │   └── index.php
         ├── auth
-        │   ├── google_callback.php
-        │   └── login.php
         ├── dashboard
-        │   └── index.php
         ├── documents
-        │   └── index.php
         ├── events
-        │   ├── create.php
-        │   ├── detail.php
-        │   ├── edit.php
-        │   └── index.php
         ├── layouts
-        │   ├── auth.php
-        │   └── main.php
         ├── notifications
-        │   └── index.php
         └── tasks
-            ├── board.php
-            └── create.php
+```
 
-31 directories, 79 files
-irmabelle@irmas-MacBook-Pro Final_Project % 
+---
+
+## ⚙️ Instalasi
+
+### 1️⃣ Clone Repository
+
+```
+git clone https://github.com/Leoallogne/Final_Project.git
+cd Final_Project
+```
+
+### 2️⃣ Setup Database
+
+* Buat database baru.
+* Import file berikut:
+
+```
+database/db_dump.sql
+```
+
+atau jalankan file migration secara manual.
+
+### 3️⃣ Konfigurasi Aplikasi
+
+Edit file:
+
+```
+app/Config/AppConfig.php
+```
+
+Atur:
+
+* BASE_URL
+* GOOGLE_CLIENT_ID
+* GOOGLE_CLIENT_SECRET
+* DB_HOST, DB_USER, DB_PASS
+
+### 4️⃣ Jalankan Aplikasi
+
+Pastikan server suda berjalan (XAMPP/MAMP/Laragon).
+Akses melalui:
+
+```
+http://localhost/Final_Project/public
+```
+
+---
+
+## 📡 Teknologi yang Digunakan
+
+* PHP Native (OOP)
+* MySQL (PDO)
+* HTML, CSS, JavaScript
+* Chart.js
+* Google OAuth API
+* MVC Architecture
+* Service Worker
+
+---
+
+## 👨‍💻 Developer
+
+**Muhammad Syafiq**
+Universitas Buana Perjuangan Karawang – Teknik Informatika
+
+---
+
+## 📌 Status Proyek
+
+**Sedang dalam tahap pengembangan inti (active development).**
+
+---
+
+EventOps – *Build Better Campus Events.*
