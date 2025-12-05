@@ -1,249 +1,135 @@
-# EventOps – Sistem Manajemen Event Mahasiswa (PHP Native + MySQL)
+# Final_Project – Branch `restructure-folder`
 
-EventOps adalah aplikasi web yang dirancang untuk membantu organisasi mahasiswa dan pihak kampus dalam mengelola seluruh proses event secara digital. Sistem ini menyediakan fitur manajemen event, divisi, tugas panitia, dokumen, approval, notifikasi, serta dashboard analitik. Aplikasi ini dibangun menggunakan *PHP Native* dengan arsitektur MVC, dipadukan dengan Google OAuth, Chart.js, dan Service Worker untuk notifikasi.
+## 🌟 Deskripsi
 
----
+Branch `restructure-folder` adalah versi **rapi & minimal** dari Final_Project.
+Struktur folder telah disederhanakan untuk mempermudah pengembangan, testing, dan deployment, tetap menggunakan **PHP Native + MySQL + JS + CSS framework** (Bootstrap/Tailwind).
 
-## 🚀 Fitur Utama
+Proyek ini adalah **Web Sistem Manajemen Event Mahasiswa** dengan fitur utama:
 
-### 🔐 Autentikasi & Role Management
-
-* Login menggunakan Google OAuth 2.0.
-* Manajemen sesi pengguna.
-* Role-based access (Admin, Ketua Event, Koordinator, Panitia).
-
-### 🗂 Manajemen Event
-
-* CRUD Event.
-* Detail event lengkap (lokasi, tanggal, fase event).
-* Pengelolaan fase event (Planning → Running → Evaluation).
-
-### 🧩 Manajemen Divisi & Panitia
-
-* Pembuatan divisi.
-* Assign koordinator.
-* Assign anggota panitia.
-* Struktur organisasi event.
-
-### 📌 Manajemen Tugas (Task Board)
-
-* Penugasan tugas berdasarkan divisi.
-* Task Board (Kanban View): To Do → In Progress → Done.
-* Update progres tugas oleh panitia.
-
-### 📁 Manajemen Dokumen
-
-* Upload proposal, MoU, surat, file pendukung event.
-* Sistem versioning dokumen.
-* Detail & download dokumen.
-
-### ✔️ Sistem Approval
-
-* Persetujuan proposal event dan anggaran.
-* Riwayat persetujuan dan catatan revisi.
-
-### 🔔 Notifikasi
-
-* Notifikasi untuk tugas baru.
-* Notifikasi approval.
-* Notifikasi deadline.
-* Service Worker (sw.js) siap untuk push notification.
-
-### 📊 Dashboard Analitik
-
-* Grafik kategori event.
-* Grafik time-series pendaftaran atau progress.
-* Ringkasan total event, tugas, divisi, dan user.
-* Komponen Chart Cards.
+* Autentikasi & Role Management (Admin, Ketua Event, Panitia)
+* CRUD Event & Task
+* Dashboard & Grafik Analitik
+* Notifikasi (Web Push / Email)
 
 ---
 
-## 🏛 Arsitektur Sistem
-
-EventOps menggunakan arsitektur berikut:
-
-```
-Request → Router → Middleware → Controller → Service → Model → Database
-                                          ↓
-                                   View Renderer
-```
-
-Struktur ini memastikan aplikasi lebih terorganisir, mudah dikembangkan, dan scalable.
-
----
-
-## 📁 Struktur Folder
+## 📁 Struktur Folder Sederhana
 
 ```
 Final_Project/
 ├── README.md
-├── composer.json
 ├── app
-│   ├── Api
-│   │   ├── ApiClient.php
-│   │   ├── CloudinaryApiClient.php
-│   │   └── GoogleApiClient.php
 │   ├── Config
-│   │   ├── AppConfig.php
-│   │   └── Database.php
+│   │   └── AppConfig.php
 │   ├── Controllers
-│   │   ├── ApprovalController.php
 │   │   ├── AuthController.php
 │   │   ├── DashboardController.php
-│   │   ├── DivisionController.php
-│   │   ├── DocumentController.php
 │   │   ├── EventController.php
-│   │   ├── NotificationController.php
-│   │   ├── TaskController.php
-│   │   └── TimelineController.php
-│   ├── Core
-│   │   ├── Auth.php
-│   │   ├── Controller.php
-│   │   ├── Model.php
-│   │   ├── Router.php
-│   │   └── View.php
-│   ├── Helpers
-│   │   ├── JwtHelper.php
-│   │   ├── Response.php
-│   │   ├── Utils.php
-│   │   └── Validator.php
-│   ├── Middleware
-│   │   ├── AuthMiddleware.php
-│   │   └── RoleMiddleware.php
+│   │   └── TaskController.php
 │   ├── Models
-│   │   ├── ActivityLog.php
-│   │   ├── Approval.php
-│   │   ├── Division.php
-│   │   ├── Document.php
-│   │   ├── DocumentVersion.php
+│   │   ├── User.php
 │   │   ├── Event.php
-│   │   ├── EventPhase.php
-│   │   ├── Notification.php
-│   │   ├── Task.php
-│   │   ├── TaskAssignment.php
-│   │   └── User.php
-│   └── Services
-│       ├── AnalyticsService.php
-│       ├── ApprovalService.php
-│       ├── AuthService.php
-│       ├── DocumentService.php
-│       ├── EmailService.php
-│       ├── EventService.php
-│       ├── GoogleOAuthService.php
-│       ├── NotificationService.php
-│       ├── PushNotificationService.php
-│       ├── TaskService.php
-│       └── UploadService.php
+│   │   └── Task.php
+│   ├── Services
+│   │   ├── AuthService.php
+│   │   └── EventService.php
+│   └── Core
+│       ├── Controller.php
+│       ├── Model.php
+│       └── View.php
 ├── database
-│   ├── db_dump.sql
-│   ├── migrations
-│   │   ├── create_approvals.sql
-│   │   ├── create_divisions.sql
-│   │   ├── create_documents.sql
-│   │   ├── create_events.sql
-│   │   ├── create_tasks.sql
-│   │   └── create_users.sql
-│   └── seeds
-│       ├── seed_divisions.sql
-│       ├── seed_events.sql
-│       ├── seed_tasks.sql
-│       └── seed_users.sql
+│   └── migrations
 ├── public
-│   ├── assets
-│   │   ├── css
-│   │   ├── img
-│   │   ├── js
-│   │   └── vendor
 │   ├── index.php
 │   ├── sw.js
-│   └── uploads
+│   └── assets
+│       ├── css
+│       ├── js
+│       └── img
 └── resources
-    ├── components
-    │   ├── chart_cards.php
-    │   ├── navbar.php
-    │   └── sidebar.php
-    └── views
-        ├── approvals
-        ├── auth
-        ├── dashboard
-        ├── documents
-        ├── events
-        ├── layouts
-        ├── notifications
-        └── tasks
+    ├── views
+    │   ├── auth
+    │   │   └── login.php
+    │   ├── dashboard
+    │   │   └── index.php
+    │   ├── events
+    │   │   └── index.php
+    │   └── tasks
+    │       └── index.php
+    └── components
+        ├── navbar.php
+        ├── sidebar.php
+        └── chart_cards.php
 ```
 
 ---
 
-## ⚙️ Instalasi
+## ⚙️ Instalasi Lokal
 
-### 1️⃣ Clone Repository
+1. **Clone branch `restructure-folder`:**
 
-```
-git clone https://github.com/Leoallogne/Final_Project.git
+```bash
+git clone -b restructure-folder https://github.com/Leoallogne/Final_Project.git
 cd Final_Project
 ```
 
-### 2️⃣ Setup Database
+2. **Setup Database**
 
-* Buat database baru.
-* Import file berikut:
+* Buat database baru di MySQL/MariaDB.
+* Import dump jika tersedia:
 
-```
-database/db_dump.sql
-```
-
-atau jalankan file migration secara manual.
-
-### 3️⃣ Konfigurasi Aplikasi
-
-Edit file:
-
-```
-app/Config/AppConfig.php
+```bash
+mysql -u root -p < database/db_dump.sql
 ```
 
-Atur:
+3. **Konfigurasi Aplikasi**
 
-* BASE_URL
-* GOOGLE_CLIENT_ID
-* GOOGLE_CLIENT_SECRET
-* DB_HOST, DB_USER, DB_PASS
+* Edit `app/Config/AppConfig.php`
+* Atur:
 
-### 4️⃣ Jalankan Aplikasi
+  * `BASE_URL`
+  * `DB_HOST`, `DB_USER`, `DB_PASS`
+  * `API_KEY` (jika ada)
 
-Pastikan server suda berjalan (XAMPP/MAMP/Laragon).
-Akses melalui:
+4. **Jalankan Server Lokal**
 
+* Gunakan XAMPP/MAMP/Laragon atau PHP built-in server:
+
+```bash
+php -S localhost:8000 -t public
 ```
-http://localhost/Final_Project/public
-```
+
+* Akses: `http://localhost:8000`
 
 ---
 
-## 📡 Teknologi yang Digunakan
+## 🔄 Alur Sistem (Flow)
 
-* PHP Native (OOP)
-* MySQL (PDO)
-* HTML, CSS, JavaScript
-* Chart.js
-* Google OAuth API
-* MVC Architecture
-* Service Worker
+1. Pengguna membuka **login page**.
+2. **AuthController** memverifikasi kredensial (password_hash atau Google OAuth).
+3. Setelah login:
+
+   * Admin bisa mengelola Event, Task, dan User.
+   * Panitia melihat Task Board dan update progres.
+4. **EventController** menangani CRUD event.
+5. **TaskController** menangani CRUD task dan assignment.
+6. **DashboardController** menampilkan grafik & ringkasan analitik.
+7. **NotificationService** mengirim notifikasi push/email sesuai kondisi.
+8. Semua interaksi data disimpan di **Models** (`User.php`, `Event.php`, `Task.php`) menggunakan OOP & PDO.
+
+---
+
+## 📌 Fitur Utama
+
+* Login / Logout / Role-based access
+* CRUD Event & Task
+* Dashboard analitik dengan Chart.js
+* Notifikasi real-time (Push / Email)
+* Seed data untuk testing
 
 ---
 
 ## 👨‍💻 Developer
 
-**Muhammad Syafiq**
-Universitas Buana Perjuangan Karawang – Teknik Informatika
-
----
-
-## 📌 Status Proyek
-
-**Sedang dalam tahap pengembangan inti (active development).**
-
----
-
-EventOps – *Build Better Campus Events.*
+**Muhammad Syafiq** – Universitas Buana Perjuangan Karawang
